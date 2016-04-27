@@ -1,0 +1,146 @@
+@CHARSET "ISO-8859-1";
+
+html {
+	margin: auto;
+}
+
+body {
+	margin: 25px auto;
+	width: 250px;
+}
+
+#msg {
+	text-align: left;
+	font-size: 20px;
+	font-family: arial;
+	clear: left;
+	padding: 5px 0;
+}
+
+div {
+	margin: 0;
+}
+
+#settings {
+	padding: 0 10% 0 0;
+}
+	
+#settingsForm {
+	margin: 0 auto;
+	width: 100%;
+}
+
+.settingsLabel {
+	width: 48%;
+	margin: 0;
+	float: left;
+	text-align: right;
+	padding-right: 2%;
+}
+
+.settingsInput {
+	width: 48%;
+	margin: 0;
+	border: 1% 1%;
+	float: left;
+}
+
+#settingsSubmitWrapper {
+	padding: 5px 0 15px 0;
+	clear: left;
+}
+
+#settingsSubmit {
+	display: block;
+	width: 100px;
+	margin: 0 auto;
+}
+
+div#calculator {
+	clear: left;
+	float: left;
+	background-color: #484848;
+	border-radius: 2px;
+	width: 90%;
+}
+
+#calculatorForm {
+	width: 100%;
+	float: left;
+}
+
+button {
+	float: left;
+	margin: 2px 1%;
+	padding: 0;
+	width: 40px;
+	height: 20px;
+	border-radius: 2px;
+	border-style: none;
+	border-color: #aaaaaa;
+}
+
+.firstCol {
+	margin-left: 0;
+	clear: left;
+}
+
+.lastCol {
+	margin-right: 0;
+}
+
+#display {
+	margin: 5px 2% 5px;
+	padding: 0 1%;
+	width: 94%;
+	height: 30px;
+	font-family: monospace;
+	font-size: 24px;
+	text-align: right;
+	background-color: #FFE6A1;
+	border-radius: 2px;
+	border-style: none;
+}
+
+#digits {
+	width: 78%;
+	margin: 0;
+	padding: 0 0 0 2%;
+	float: left;
+}
+
+#operators {
+	width: 16%;
+	padding: 0 2% 0 2%;
+	float: right;
+}
+
+.operatorsButton {
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 100%
+}
+
+#lastRow {
+	clear: both;
+}
+
+#equal {
+	width: 78%;
+	padding: 0;
+	margin: 2px 0 5px 2%;
+	float: left;
+}
+
+#reset {
+	width: 16%;
+	padding: 0;
+	margin: 2px 2% 5px 2%;
+	float: right;
+}
+
+#prevOperatorLabel {
+	width: 8%;
+	margin: 12px 0 0 2%;
+	float: left;
+}
