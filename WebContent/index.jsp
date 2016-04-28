@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="styles.css">
-<%-- <script type="text/javascript" src="keyBindings.js"></script> --%>
-<script type="text/javascript" src="calculator.js"></script>
+<link rel="stylesheet" href="/calculator/styles.css">
+<!-- <script type="text/javascript" src="/calculator/keyBindings.js"></script> -->
+<script type="text/javascript" src="/calculator/calculator.js"></script>
 <title>Web Calculator</title>
 <c:choose>
 	<c:when test="${param.numNumbers != null}">
@@ -58,13 +58,13 @@
 		</form>
 	</div>
 	<div id="calculator">
-		<form id="calculatorForm" action="/calculator/calculate" method="post">
+		<form id="calculatorForm" action="/calculator/calculate/" method="post">
 <%-- 			<input id="display" type="text" name="display" readonly="readonly" value="<c:out value="${ display }"/>"> --%>
 			<input id="display" type="text" name="display" readonly="readonly" value="<c:out value="${ applicationScope.display }"/>">
 			<input id="touched" type="hidden" name="touched" value="false">
 			<input id="operator" type="hidden" name="operator">
 			<input id="prevOperator" type="hidden" name="prevOperator" value="<c:out value="${ prevOperator }"/>">
-			<input id="prevOperand" type="hidden" name="prevOperand" value="<c:out value="${ prevOperand }"/>">
+			<input id="prevOperand" type="hidden" name="prevOperand" value="<c:out value="${ applicationScope.prevOperand }"/>">
 			<div id="digits">
 				<c:forEach var="i" begin="1" end="${ numNumbers - 1 }">
 					<button class="digit<c:if test="${ (i % numCol) == 1 }"> firstCol</c:if><c:if test="${ (i % numCol) == 0 }"> lastCol</c:if>" type="button" onclick="digitPress(${i})">${i}</button>

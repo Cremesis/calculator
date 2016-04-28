@@ -5,7 +5,7 @@ function manageDisplay() {
 		display = document.getElementById('display');
 		touched = true;
 		document.getElementById('prevOperand').value = display.value;
-		display.value = "";
+		if (display.value != "-") display.value = "";
 		document.getElementById('touched').value = true;
 	}
 }
@@ -46,7 +46,7 @@ function operatorPress(operator) {
 			display.value = "-";
 	} else if (display.value == "" || display.value == "-") {
 		if (operator == "+")
-			display.value = "+";
+			display.value = "";
 	} else {
 		// Send form data
 		document.getElementById("operator").value = operator;

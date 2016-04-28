@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/calculate")
+@WebServlet("/calculate/")
 public class CalculatorServlet extends HttpServlet {
 	private static final long serialVersionUID = -5755605526375713199L;
 
@@ -27,17 +27,18 @@ public class CalculatorServlet extends HttpServlet {
 		Map<String, String> respAttributeMap = new HashMap<String, String>();
 		
 		// Get request parameters
-		String display = String.valueOf(req.getParameter("display"));
-		String prevOperand = String.valueOf(req.getParameter("prevOperand"));
+		ServletContext context = getServletContext();
+		boolean touched = Boolean.valueOf(req.getParameter("touched"));
+		String display = (!touched) ? (String) context.getAttribute("display") : String.valueOf(req.getParameter("display"));
+		String prevOperand = (!touched) ? (String) context.getAttribute("prevOperand") : String.valueOf(req.getParameter("prevOperand"));
 		String operator = String.valueOf(req.getParameter("operator"));
 		String prevOperator = String.valueOf(req.getParameter("prevOperator"));
-		boolean touched = Boolean.valueOf(req.getParameter("touched"));
 		
 		// Default the result to the number in the display
 		String operatorResult = display;
 		
 		if(!prevOperand.isEmpty() && !prevOperator.isEmpty() && (operator.equals("=") || touched)) { // Compute operation
-			Double firstVal, secondVal, result;
+			double firstVal, secondVal, result;
 			firstVal = secondVal = result = 0d;
 			
 			try {
@@ -83,7 +84,7 @@ public class CalculatorServlet extends HttpServlet {
 			
 			// remove decimal part if useless
 			if(result == Math.floor(result))
-				operatorResult = String.valueOf((int)Math.floor(result));
+				operatorResult = String.valueOf((int)result);
 			else
 				operatorResult = String.valueOf(result);
 		}
@@ -95,10 +96,8 @@ public class CalculatorServlet extends HttpServlet {
 		}
 
 		// In the display show last number or result of the operator
-		ServletContext context = getServletContext();
 		context.setAttribute("display", operatorResult);
-//		respAttributeMap.put("display", operatorResult);
-		respAttributeMap.put("prevOperand", !touched ? prevOperand : display);
+		context.setAttribute("prevOperand", !touched ? prevOperand : display);
 		forwardResult(respAttributeMap, req, resp);
 	}
 

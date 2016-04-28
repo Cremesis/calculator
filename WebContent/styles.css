@@ -41,7 +41,9 @@ div {
 .settingsInput {
 	width: 48%;
 	margin: 0;
-	border: 1% 1%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #999;
 	float: left;
 }
 
@@ -94,7 +96,7 @@ button {
 	padding: 0 1%;
 	width: 94%;
 	height: 30px;
-	font-family: monospace;
+	font-family: "Lucida Console", Monaco, monospace;
 	font-size: 24px;
 	text-align: right;
 	background-color: #FFE6A1;
